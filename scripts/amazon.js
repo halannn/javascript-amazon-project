@@ -1,4 +1,5 @@
 import { cart } from "../data/card.js";
+import { products } from "../data/products.js";
 
 let productsHTML = "";
 let addedMessageTimeouts = {};
