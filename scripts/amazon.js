@@ -1,13 +1,13 @@
 import { cart, addToCart } from "../data/card.js";
 import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
+import { quantityCard } from "./utils/quantityCard.js";
 
 let productsHTML = "";
 let addedMessageTimeouts = {};
 
 products.forEach((product) => {
-  productsHTML += 
-  `
+  productsHTML += `
     <div class="product-container">
       <div class="product-image-container">
         <img class="product-image"
@@ -61,15 +61,14 @@ products.forEach((product) => {
   `;
 });
 
+const cartQuantity = quantityCard();
+document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
+
 document.querySelector(".js-products-grid").innerHTML = productsHTML;
 
 function updateCartQuantity(productId) {
-  let cartQuantity = 0;
-
-  cart.forEach((cartItem) => {
-    cartQuantity += cartItem.quantity;
-  });
-
+  const cartQuantity = quantityCard();
+  
   document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
 
   const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`);
