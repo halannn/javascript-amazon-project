@@ -1,4 +1,4 @@
-import { cart } from "../../data/card.js";
+import { cart } from "../../data/cart.js";
 
 export function quantityCard() {
   let cartQuantity = 0;
