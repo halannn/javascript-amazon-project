@@ -129,9 +129,9 @@ export function renderOrderSummary() {
       const productId = link.dataset.productId;
       removeFromCart(productId);
 
-      // updateCartQuantity();
+      updateCartQuantity();
       renderOrderSummary();
-      // renderPaymentSummary();
+      renderPaymentSummary();
     });
   });
 
@@ -143,7 +143,7 @@ export function renderOrderSummary() {
     ).innerHTML = `${cartQuantity} items`;
   }
 
-  // updateCartQuantity();
+  updateCartQuantity();
 
   document.querySelectorAll(".js-update-quantity-link").forEach((link) => {
     link.addEventListener("click", () => {
